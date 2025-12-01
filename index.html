@@ -25,9 +25,222 @@
     <meta name="twitter:description" content="A new fashion brand arriving January 2026.">
     <meta name="twitter:image" content="https://maisonbykeza.com/cover.jpg">
 
-    <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/f071670ffd.js" crossorigin="anonymous" defer></script>
-    <script src="script.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Raleway:wght@100;200;300;400;500;600;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 100%;
+        }
+
+        body {
+            background: #000;
+            color: #F1F7FC;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 400;
+            line-height: 1.75;
+            max-width: 100vw;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: clamp(1rem, 0.9rem + 0.5vw, 1.2rem);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Permanent Marker', cursive;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: clamp(3rem, 5vw + 1rem, 11.089rem);
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 4vw + 1rem, 6.854rem);
+            text-align: center;
+        }
+
+        h3 {
+            font-size: clamp(2rem, 3vw + 1rem, 4.236rem);
+            text-align: center;
+            margin: 15vh 0 !important;
+        }
+
+        h4 {
+            text-align: center;
+            font-size: clamp(1.8rem, 3vw + 0.5rem, 2.618rem);
+            margin-bottom: 1rem;
+        }
+
+        h5 {
+            font-size: clamp(1.2rem, 2vw + 0.5rem, 1.618rem);
+        }
+
+        .legacy-link {
+            text-decoration: none;
+            color: #Fffefd;
+            position: relative;
+        }
+
+        .legacy-link::before {
+            content: '';
+            background-color: #ff053b;
+            position: absolute;
+            left: 0;
+            bottom: 3px;
+            width: 100%;
+            height: 5px;
+            z-index: -1;
+            transition: all .3s ease-in-out;
+        }
+
+        .legacy-link:hover::before {
+            bottom: 0;
+            height: 100%;
+        }
+
+        small,
+        .text_small {
+            font-size: clamp(0.85rem, 0.8rem + 0.3vw, 1rem);
+        }
+
+        @keyframes fadeIn {
+            from {
+                top: 20%;
+                opacity: 0;
+            }
+            to {
+                top: 50%;
+                opacity: 1;
+            }
+        }
+
+        .wrapper {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            animation: fadeIn 1000ms ease;
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        #countdown {
+            text-align: center;
+            color: #757575;
+            font-size: clamp(0.9rem, 0.85rem + 0.3vw, 1.1rem);
+            white-space: nowrap;
+        }
+
+        .dot {
+            color: #ff053b;
+        }
+
+        .icons {
+            text-align: center;
+            margin-top: 6vh !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 10px;
+        }
+
+        .icons a {
+            text-decoration: none;
+            display: inline-flex;
+            flex-shrink: 0;
+        }
+
+        .icons i {
+            color: #ffffff;
+            background: #ff053b;
+            height: 15px;
+            width: 15px;
+            padding: 10px;
+            border-radius: 50px;
+            border: 2px solid #ff053b;
+            transition: all 200ms ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+        }
+
+        .icons i:hover,
+        .icons i:active {
+            color: #ff053b;
+            border: 2px solid #ff053b;
+            background: none;
+            cursor: pointer !important;
+            transform: scale(1.2);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .wrapper {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .icons {
+                gap: 8px;
+                margin-top: 4vh !important;
+            }
+
+            .icons i {
+                padding: 8px;
+                height: 12px;
+                width: 12px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .icons {
+                gap: 6px;
+            }
+
+            .icons i {
+                padding: 7px;
+                height: 11px;
+                width: 11px;
+                font-size: 11px;
+            }
+        }
+
+        /* Prevent icon wrapping on very small screens */
+        @media (max-width: 360px) {
+            .icons {
+                gap: 4px;
+            }
+
+            .icons i {
+                padding: 6px;
+                height: 10px;
+                width: 10px;
+                font-size: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -35,18 +248,48 @@
         <div>
             <img src="maison_by_keza.png" alt="Maison By Keza Logo" style="max-width: 550px; width: 100%; height: auto; margin: 1.5rem auto; display: block;">
             
-            <h4>Coming Soon<span class="dot">.</h4>
+            <h4>Coming Soon<span class="dot">.</span></h4>
 
             <p class="text_small" id="countdown"></p>
 
             <div class="icons">
-                <a href="https://instagram.com/maisonbykeza"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://facebook.com/maisonbykeza"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://tiktok.com/@maisonbykeza"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="https://pinterest.com/maisonbykeza"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="https://instagram.com/maisonbykeza" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://facebook.com/maisonbykeza" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://tiktok.com/@maisonbykeza" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://pinterest.com/maisonbykeza" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
             </div>
         </div>
     </div>
+
+    <script>
+        // Set the date we're counting down to
+        let countDownDate = new Date("Dec 13, 2025 09:37:25").getTime();
+
+        // Update the count down every 1 second
+        let x = setInterval(function () {
+            // Get todays date and time
+            let now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            let distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in an element with id="countdown"
+            document.getElementById("countdown").innerHTML =
+                days + " Days " + hours + " h " + minutes + " min " + seconds + " s ";
+
+            // If the count down is finished, display message
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "RELEASED!";
+            }
+        }, 1000);
+    </script>
 </body>
 
 </html>
