@@ -2791,6 +2791,27 @@ label {
     transform: scaleX(1);
 }
 
+/* Make the header category list scroll only on small screens (keeps .tf-lg-hidden hidden on larger viewports) */
+@media (max-width: 991px) {
+    .header-list-categories.tf-lg-hidden {
+        display: flex;              /* keep items in a row */
+        gap: 10px;
+        overflow-x: auto;          /* horizontal scroll */
+        -webkit-overflow-scrolling: touch; /* smooth momentum scrolling on iOS */
+        padding: 8px 12px;         /* breathing room at start/end */
+        white-space: nowrap;       /* prevent wrapping */
+        scroll-snap-type: x mandatory; /* snap behavior for a nicer UX */
+    }
+    .header-list-categories.tf-lg-hidden .categories-item{
+        flex: 0 0 auto;            /* keep items sized to their content */
+        scroll-snap-align: start;  /* snap items to the left edge */
+    }
+    .header-list-categories.tf-lg-hidden::-webkit-scrollbar{
+        display: none;             /* hide scrollbar for webkit browsers */
+    }
+    .header-list-categories.tf-lg-hidden{ -ms-overflow-style: none; scrollbar-width: none; }
+}
+
 .header-style-2 .header-bottom .wrapper-header {
     min-height: 60px;
 }
